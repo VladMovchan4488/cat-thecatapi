@@ -114,13 +114,9 @@ const HomePage = ({ cats, chooseBreed, isLoading, setLoader, setError, loadCats,
               resetLimit={resetLimit}/>
       {
         !chooseBreed.length ?
-          <>
-            <h3>No cats available</h3>
-
-          </> :
-          <>
-            <CatCard setSingleBreed={setSingleBreed} chooseBreed={chooseBreed}/>
-          </>
+          <h3>No cats available</h3>
+          :
+          <CatCard setSingleBreed={setSingleBreed} chooseBreed={chooseBreed}/>
       }
       {
         isLoading ?
