@@ -26,16 +26,28 @@ code {
   .card-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+
+    .card {
+      max-width: 280px;
+      margin-bottom: 20px;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
   }
 
-  .card {
-    max-width: 300px;
-    margin: 0 20px 20px 0;
+  .cat-page {
+    .card-title {
+      margin-top: 10px;
+    }
 
-    .card-body {
-      display: flex;
-      justify-content: center;
+    .cat-description {
+      strong {
+        display: block;
+        line-height: 2;
+      }
     }
   }
 }

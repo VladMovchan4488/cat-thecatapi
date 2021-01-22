@@ -4,6 +4,8 @@ import types from './types'
 const initialState: IInitialState = {
   cats: [],
   singleBreed: [],
+  chooseBreed: [],
+  loadMore: true,
   isLoading: false,
   errors: false,
 }
@@ -26,14 +28,19 @@ const store = (state = initialState, action: IAction) => {
         cats: action.payload
       }
     case (types.SET_BREED):
-      const singleBreed = state.cats.filter((cat: any) => {
-        if (cat.name === action.payload) {
-          return cat
-        }
-      })
       return {
         ...state,
-        singleBreed
+        chooseBreed: action.payload
+      }
+    case (types.SET_SINGLE_BREED):
+      return {
+        ...state,
+        singleBreed: action.payload
+      }
+    case (types.SET_LOAD_MORE):
+      return {
+        ...state,
+        loadMore: action.payload
       }
     default: {
       return state

@@ -1,24 +1,25 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { ICat } from '../shared/interface';
 
 interface ICard {
-  singleBreed: ICat[]
+  chooseBreed: ICat[]
+  setSingleBreed: (props: ICat[]) => void
 }
 
-const CatCard = ({singleBreed}: ICard) => {
+const CatCard = ({ chooseBreed, setSingleBreed }: ICard) => {
 
   return (
-    <div className="card-wrapper">
+    <div style={{ textAlign: 'center', marginBottom: 15 }} className="card-wrapper">
       {
-        singleBreed.map( (breed: ICat, index: number) => (
-          <Card className="card" key={index}>
-            {breed.image ? <Card.Img className="card-img" variant="top" src={breed.image.url} /> : null}
+        chooseBreed.map((breed: ICat, index: number) => (
+          <Card key={index}>
+            {breed.image ? <Card.Img className="card-img" variant="top" src={breed.image.url}/> : null}
             <Card.Body>
               <Link to="/cat-page">
                 <Button
-                  onClick={() => console.log(breed)}
+                  onClick={() => setSingleBreed([breed])}
                   variant="primary">
                   View details
                 </Button>

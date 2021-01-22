@@ -1,8 +1,10 @@
 export interface IInitialState {
   cats: Array<any[]>
-  singleBreed: object
+  singleBreed: Array<any[]>
+  chooseBreed: object
+  loadMore: boolean
   isLoading: boolean
-  errors: false
+  errors: boolean
 }
 
 export interface IAction {

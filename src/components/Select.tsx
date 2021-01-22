@@ -4,24 +4,27 @@ import { ICat } from '../shared/interface'
 
 interface ISelect {
   breeds: any[]
-  setBreed: (props: string) => void
-  singleBreed: ICat[]
+  chooseBreed: ICat[]
+  isLoading: boolean
+  getChooseBreed: (props: string, limit: number) => void
+  resetLimit: () => void
 }
-const Select = ({breeds, singleBreed, setBreed}: ISelect) => {
+const Select = ({breeds, chooseBreed, isLoading, getChooseBreed, resetLimit}: ISelect) => {
   const handleChange = (event: any) => {
-    const breed = event.target.value
-    setBreed(breed)
+    const breedId = event.target.value
+    resetLimit()
+    getChooseBreed(breedId, 3)
   }
-  const initialValue = singleBreed[0] ? singleBreed[0].name : ''
 
+  const initialValue = chooseBreed[0] ? chooseBreed[0].id : ''
   return (
     <Form.Group className="chose-cat-breed">
       <Form.Label>Breed</Form.Label>
-      <Form.Control as="select" onChange={handleChange} value={initialValue}>
-        <option value=''>Choose option...</option>
+      <Form.Control as="select" onChange={handleChange} value={initialValue} disabled={isLoading}>
+        <option value=''>Select Breed</option>
         {
           breeds.map(breed => (
-            <option value={breed.name} key={breed.id}>{breed.name}</option>
+            <option value={breed.id} key={breed.id}>{breed.name}</option>
           ))
         }
       </Form.Control>

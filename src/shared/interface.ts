@@ -1,8 +1,14 @@
 export interface IStateHomePage {
-  cat: any;
-  cats?: Array<any[]>,
-  isLoading: boolean,
+  cat: any
+  cats?: Array<any[]>
+  isLoading: boolean
   error: boolean
+  loadMore: boolean
+}
+
+export interface IStateCatPage {
+  cat: any;
+  chooseBreed: ICat[]
 }
 
 export interface ICat {
