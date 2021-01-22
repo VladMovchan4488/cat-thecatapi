@@ -3,7 +3,7 @@ import types from './types'
 
 const initialState: IInitialState = {
   cats: [],
-  singleBreed: {},
+  singleBreed: [],
   isLoading: false,
   errors: false,
 }

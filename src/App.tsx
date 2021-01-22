@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import CatPage from './pages/CatPage'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.scss'
 
 function App() {

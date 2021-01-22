@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import reducer from './store/index';
-import './index.scss';
-import App from './App';
+import reducer from './store/index'
+import './index.scss'
+import App from './App'
 
 const store = createStore(
   reducer, /* preloadedState, */
