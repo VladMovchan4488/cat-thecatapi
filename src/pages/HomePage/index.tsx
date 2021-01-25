@@ -81,7 +81,7 @@ const HomePage = ({ cats, chooseBreed, isLoading, setLoader, setError, loadCats,
         }
         return data
       })
-      if (chooseBreed.length === breed.length) {
+      if (chooseBreed.length === breed.length && chooseBreed[0].id === breed[0].id) {
         setLoadMore(false)
       }
       setBreed(breed)
